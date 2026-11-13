@@ -200,13 +200,19 @@ h2 em{color:var(--wine);font-style:italic;font-weight:400}
 .fcap .n{font-family:var(--serif);font-size:21px;line-height:1.2;color:var(--ink)}
 .folio .plus{position:absolute;top:14px;right:14px;z-index:2;width:38px;height:38px;border:1px solid rgba(92,33,64,.55);background:rgba(247,243,242,.75);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--wine);opacity:0;transform:translateY(-8px);transition:.4s var(--ease)}
 .folio:hover .plus{opacity:1;transform:none}
-.f-1,.f-2,.f-3{grid-column:span 4;aspect-ratio:3/4.3}
+.f-1,.f-2,.f-3,.f-4,.f-5{grid-column:span 4;aspect-ratio:3/4.3}
 .f-2{margin-top:52px}
+.f-5{margin-top:52px}
+.folio-promo{grid-column:span 4;aspect-ratio:3/4.3;border:1px solid rgba(92,33,64,.35);outline:1px solid var(--line-soft);outline-offset:-1px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:26px;background:linear-gradient(120deg,rgba(158,135,145,.14),rgba(255,255,255,.4) 55%);transition:outline-color .4s}
+.folio-promo:hover{outline-color:var(--wine)}
+.folio-promo .fp-t{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--wine);text-transform:uppercase}
+.folio-promo .fp-n{font-family:var(--serif);font-size:24px;line-height:1.25;color:var(--ink)}
+.folio-promo .fp-n em{color:var(--wine);font-style:italic}
+.folio-promo .btn{margin-top:6px}
 .folio-cta{grid-column:span 12;margin-top:6px;border:1px solid rgba(92,33,64,.35);display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;padding:38px 44px;background:linear-gradient(120deg,rgba(158,135,145,.14),rgba(255,255,255,.4) 55%)}
 .folio-cta .fc-big{font-family:var(--serif);font-size:clamp(28px,3vw,42px);line-height:1.08;font-weight:500;color:var(--ink)}
 .folio-cta .fc-big em{color:var(--wine);font-style:italic}
 .folio-cta .fc-small{color:var(--muted);font-size:14.5px;max-width:420px;margin-top:8px}
-.folio-more{text-align:center;margin-top:44px}
 
 /* ---------- price (тёмная винная полоса — как полосы логотипа) ---------- */
 .price{background:linear-gradient(165deg,#4a1b34,#5e2240 55%,#431730);color:var(--paper)}
@@ -341,7 +347,8 @@ footer{border-top:1px solid var(--line-soft);padding:44px 0;position:relative;ba
   .wrap{padding:0 20px}
   .hero{padding-top:104px}
   .hero-chips{display:none}
-  .f-1,.f-2,.f-3{grid-column:span 12;margin-top:0;aspect-ratio:3/4}
+  .f-1,.f-2,.f-3,.f-4,.f-5{grid-column:span 12;margin-top:0;aspect-ratio:3/4}
+  .folio-promo{grid-column:span 12;aspect-ratio:auto;padding:34px 24px}
   .folio-cta{padding:30px 24px}
   .f-row{grid-template-columns:1fr}
   form.lead-form{padding:30px 22px}
@@ -523,6 +530,21 @@ footer{border-top:1px solid var(--line-soft);padding:44px 0;position:relative;ba
         <span class="plus">+</span>
         <div class="fcap"><div><div class="t">look 03</div><div class="n">Красное атласное платье</div></div></div>
       </div>
+      <div class="folio f-4 rev" data-d="1" data-lb="3">
+        <img src="images/portfolio-4.jpg" alt="Длинное платье цвета айвори с V-образным вырезом и атласным поясом на талии" loading="lazy">
+        <span class="plus">+</span>
+        <div class="fcap"><div><div class="t">look 04</div><div class="n">Платье-ампир цвета айвори</div></div></div>
+      </div>
+      <div class="folio f-5 rev" data-d="2" data-lb="4">
+        <img src="images/portfolio-5.jpg" alt="Короткое белое коктейльное платье с воздушной юбкой и поясом из страз" loading="lazy">
+        <span class="plus">+</span>
+        <div class="fcap"><div><div class="t">look 05</div><div class="n">Коктейльное платье со стразами</div></div></div>
+      </div>
+      <a class="folio-promo rev" data-d="3" href="https://vk.ru/salonateliermarina" data-vk target="_blank" rel="noopener">
+        <span class="fp-t">Группа ВКонтакте</span>
+        <span class="fp-n">Больше работ <em>— в нашем ВК</em></span>
+        <span class="btn sm solid">Открыть группу</span>
+      </a>
       <div class="folio-cta rev" data-d="3">
         <div>
           <p class="fc-big">Хотите платье <em>как эти?</em></p>
@@ -530,9 +552,6 @@ footer{border-top:1px solid var(--line-soft);padding:44px 0;position:relative;ba
         </div>
         <a class="btn solid" href="#lead">Оставить заявку</a>
       </div>
-    </div>
-    <div class="folio-more rev">
-      <a class="btn" href="https://vk.ru/salonateliermarina" data-vk target="_blank" rel="noopener">Больше работ — в группе ВК</a>
     </div>
   </div>
 </section>
@@ -915,7 +934,9 @@ if (vid){
 var folio = [
   {src:'images/portfolio-1.jpg', cap:'LOOK 01 · Платье цвета слоновой кости'},
   {src:'images/portfolio-2.jpg', cap:'LOOK 02 · Чёрное платье с пайетками'},
-  {src:'images/portfolio-3.jpg', cap:'LOOK 03 · Красное атласное платье'}
+  {src:'images/portfolio-3.jpg', cap:'LOOK 03 · Красное атласное платье'},
+  {src:'images/portfolio-4.jpg', cap:'LOOK 04 · Платье-ампир цвета айвори'},
+  {src:'images/portfolio-5.jpg', cap:'LOOK 05 · Коктейльное платье со стразами'}
 ];
 var lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
 var lbIdx = 0;
